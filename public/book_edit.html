@@ -61,7 +61,7 @@
 <script>
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/api/stores',
+        url: '/api/stores',
         success:(data, status, xhr)=>{
             data.map((item)=>{
                 $('#stores').append($('<option>', {
@@ -79,7 +79,7 @@
 
     $.ajax({
         type:'GET',
-        url: `http://localhost:3000/api/books/${bookID}`,
+        url: `/api/books/${bookID}`,
         success: (data,status,xhr)=>{
             $('#name').val(data.name);
             $('#author').val(data.author);
@@ -105,7 +105,7 @@
 
         $.ajax({
             type: 'PATCH',
-            url: `http://localhost:3000/api/add/books/${bookID}`,
+            url: `/api/add/books/${bookID}`,
             data: JSON.stringify(bookObj),
             contentType: 'application/json',
             success: (data, staus, xhr)=>{
@@ -122,7 +122,7 @@
     $('#delete_book').click(()=>{
         $.ajax({
             type: 'DELETE',
-            url: `http://localhost:3000/api/delete/books/${bookID}`,
+            url: `/api/delete/books/${bookID}`,
             success: (data, status, xhr)=>{
                 alert('Deleted, bitch!!!');
             },
